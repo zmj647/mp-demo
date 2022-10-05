@@ -19,7 +19,7 @@ public class ArticleCat {
     private Integer showInNav;
     @TableField(value = "sort_order")
     private Integer sortOrder;
-    @TableField(value = "creat_time")
+    @TableField(value = "create_time")
     private Timestamp createTime;
     @TableField(value = "update_time")
     private Timestamp updateTime;
