@@ -3,10 +3,7 @@ package com.example.mpdemo02.controller;
 import com.example.mpdemo02.pojo.Memorabilia;
 import com.example.mpdemo02.service.MemorabiliaService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -15,8 +12,8 @@ import java.util.List;
 public class MemorabiliaController {
     @Autowired
     private MemorabiliaService memorabiliaService;
-    @GetMapping("/one")
-    public Memorabilia one(Integer id){
+    @GetMapping("/{id}")
+    public Memorabilia one(@PathVariable Integer id){
         return memorabiliaService.getById(id);
     }
     @GetMapping("/all")
