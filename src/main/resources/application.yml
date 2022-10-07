@@ -5,6 +5,10 @@ spring:
     url: jdbc:mysql://localhost:3306/mp?serverTimezone=UTC
     username: root
     password: zmj
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
 mybatis-plus:
   configuration:
     map-underscore-to-camel-case: true
