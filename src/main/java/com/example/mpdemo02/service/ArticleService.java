@@ -8,4 +8,6 @@ import java.util.List;
 
 public interface ArticleService extends IService<Article> {
     List<ArticleWithCommentVo> getArticleWithCommentVo();
+
+    ArticleWithCommentVo getArticleId(Integer id);
 }
