@@ -1,0 +1,64 @@
+package ${package.Controller};
+
+
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import org.springframework.web.bind.annotation.*;
+import javax.annotation.Resource;
+import java.util.List;
+
+import ${package.Service}.${table.serviceName};
+import ${package.Entity}.${entity};
+#if(${restControllerStyle})
+import org.springframework.web.bind.annotation.RestController;
+#else
+import org.springframework.stereotype.Controller;
+#end
+#if(${superControllerClassPackage})
+import ${superControllerClassPackage};
+#end
+
+/**
+ * <p>
+ * $!{table.comment} Controller
+ * </p>
+ *
+ * @author ${author}
+ * @since ${date}
+ */
+@RestController
+@RequestMapping("#if(${package.ModuleName})/${package.ModuleName}#end/#if(${controllerMappingHyphenStyle})${controllerMappingHyphen}#else${table.entityPath}#end")
+public class ${table.controllerName} {
+
+@Resource
+private ${table.serviceName} ${table.entityPath}Service;
+
+@PostMapping
+public boolean save(@RequestBody ${entity} ${table.entityPath}){
+        return ${table.entityPath}Service.saveOrUpdate(${table.entityPath});
+        }
+
+@DeleteMapping("/{id}")
+public Boolean delete(@PathVariable Integer id){
+        return ${table.entityPath}Service.removeById(id);
+        }
+
+@PostMapping("/del/batch")
+public boolean deleteBatch(@RequestBody List<Integer> ids){
+        return ${table.entityPath}Service.removeByIds(ids);
+        }
+
+@GetMapping
+public List<${entity}> findAll(){
+        return ${table.entityPath}Service.list();
+        }
+
+@GetMapping("/{id}")
+public ${entity} findOne(@PathVariable Integer id){
+        return ${table.entityPath}Service.getById(id);
+        }
+@PostMapping("/update")
+public boolean update(@RequestBody ${entity} ${table.entityPath}){
+    return ${table.entityPath}Service.updateById(${table.entityPath});
+        }
+}

@@ -20,7 +20,7 @@ public class Knife4jConfiguration {
         Docket docket=new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(new ApiInfoBuilder()
                         //描述字段支持Markdown语法
-                        .description("# Knife4j RESTful APIs")
+                        .description("# 郑铭杰的store")
                         .termsOfServiceUrl("https://doc.xiaominfo.com/")
                         .contact("xiaoymin@foxmail.com")
                         .version("1.0")
